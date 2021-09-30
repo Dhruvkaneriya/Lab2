@@ -70,3 +70,19 @@ namespace Geometry2DUnitTests
 		}
 	}
 }
+namespace Lab2.Particles
+{
+	[TestClass]
+	public class ParticleUnitTest
+    {
+		[TestMethod]
+		public void PhononTest()
+		{ 
+		
+		}
+		public void DriftTest()
+		{
+			
+		}
+    }
+}

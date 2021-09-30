@@ -24,6 +24,7 @@ namespace Lab2.Particles
 		{
 			SetSign(sign);
 			Active = true;
+			DriftTime = 0;
 		}
 
 		public Phonon(Phonon p) : base(p)
