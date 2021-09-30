@@ -1,4 +1,5 @@
 ﻿using System;
+using Lab2.Particles;
 
 namespace Lab2.Geometry2D
 {
@@ -6,13 +7,12 @@ namespace Lab2.Geometry2D
     {
         static void Main(string[] args)
         {
-            Point p = new Point();
+            Phonon p = new Phonon(1);
+            Console.WriteLine(p);
 
-            p.SetCoords(2, 2);
-            p.SetCoords(null, 2);
-
-            Vector v = new Vector();
-            v.Set(-1, 1);
+            Point point = p.Position;
+            point.SetCoords(100, 100);
+            Console.WriteLine(p);
         }
     }
 }

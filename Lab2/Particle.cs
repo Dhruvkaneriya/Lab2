@@ -11,19 +11,26 @@ namespace Lab2.Particles
 
 		public Point Position
 		{
-			// Implementation here - Careful not to break encapsulation here
+			get => new Point(position.X, position.Y);
+			set => position = value;
 		}
 
 		public Vector Direction
 		{
-			// Implementation here - Careful not to break encapsulation here
+			get => new Vector(direction.DX, direction.DY);
+			set => direction = value;
 		}
 
 		/// <summary>
 		/// The default constructor sets the particle position and direction vector to (0,0)
 		/// and the speed to 0.
 		/// </summary>
-		public Particle() { }
+		public Particle() 
+		{
+			Position.SetCoords(0, 0);
+			Direction.Set(0, 0);
+			Speed = 0;
+		}
 
 		public Particle(Point position, Vector direction, double speed)
 		{
@@ -32,9 +39,11 @@ namespace Lab2.Particles
 			Speed = speed;
 		}
 
-		public Particle(Particle p)
+		public Particle(Particle p) // copy constructor
 		{
-			// Implement this
+			Position = p.Position;
+			Direction = p.Direction;
+			Speed = p.Speed;
 		}
 		/// <summary>
 		/// Sets the particle's position in 2D space
@@ -44,6 +53,7 @@ namespace Lab2.Particles
 		public void SetCoords(double? px, double? py)
 		{
 			// Implementation here
+			Position.SetCoords(px, py);
 			throw new NotImplementedException();
 		}
 		/// <summary>
@@ -54,6 +64,7 @@ namespace Lab2.Particles
 		public void GetCoords(out double px, out double py)
 		{
 			// Implementation here
+			Position.GetCoords(out px,out py);
 			throw new NotImplementedException();
 		}
 		/// <summary>
@@ -65,6 +76,7 @@ namespace Lab2.Particles
 		public void SetDirection(double dx, double dy)
 		{
 			// Implementation here
+			Direction.Set(dx, dy);
 			throw new NotImplementedException();
 		}
 		/// <summary>
@@ -75,6 +87,9 @@ namespace Lab2.Particles
 		public void GetDirection(out double dx, out double dy)
 		{
 			// Implementation here
+			dx = Direction.DX;
+			dy = Direction.DY;
+			Direction.Set(dx, dy);
 			throw new NotImplementedException();
 		}
 		/// <summary>
@@ -84,6 +99,18 @@ namespace Lab2.Particles
 		public void Drift(double time)
 		{
 			// Implementation here
+			if (time == 0)
+			{
+				position.SetCoords(x, y);
+				direction.Set(i, j);
+				Speed v = 0;
+
+			}
+			else
+			{
+				double distance_moved_in_X_direction = i * v * t;
+				double distance_moved_in_Y_direction = j * v * t;
+			}
 			throw new NotImplementedException();
 		}
 		/// <summary>
